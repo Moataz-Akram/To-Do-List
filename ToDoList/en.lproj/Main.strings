@@ -1,0 +1,57 @@
+
+/* Class = "UIButton"; normalTitle = "Add Task"; ObjectID = "194-Ao-NmO"; */
+"194-Ao-NmO.normalTitle" = "Add Task";
+
+/* Class = "UISegmentedControl"; Bc2-6t-K0f.segmentTitles[0] = "L"; ObjectID = "Bc2-6t-K0f"; */
+"Bc2-6t-K0f.segmentTitles[0]" = "L";
+
+/* Class = "UISegmentedControl"; Bc2-6t-K0f.segmentTitles[1] = "M"; ObjectID = "Bc2-6t-K0f"; */
+"Bc2-6t-K0f.segmentTitles[1]" = "M";
+
+/* Class = "UISegmentedControl"; Bc2-6t-K0f.segmentTitles[2] = "H"; ObjectID = "Bc2-6t-K0f"; */
+"Bc2-6t-K0f.segmentTitles[2]" = "H";
+
+/* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "JBt-AW-kwY"; */
+"JBt-AW-kwY.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
+
+/* Class = "UITabBarItem"; title = "Todo"; ObjectID = "Npr-wb-hBA"; */
+"Npr-wb-hBA.title" = "Todo";
+
+/* Class = "UITabBarItem"; title = "In progress"; ObjectID = "SVM-74-1wV"; */
+"SVM-74-1wV.title" = "In progress";
+
+/* Class = "UISegmentedControl"; SeF-hR-FPX.segmentTitles[0] = "L"; ObjectID = "SeF-hR-FPX"; */
+"SeF-hR-FPX.segmentTitles[0]" = "L";
+
+/* Class = "UISegmentedControl"; SeF-hR-FPX.segmentTitles[1] = "M"; ObjectID = "SeF-hR-FPX"; */
+"SeF-hR-FPX.segmentTitles[1]" = "M";
+
+/* Class = "UISegmentedControl"; SeF-hR-FPX.segmentTitles[2] = "H"; ObjectID = "SeF-hR-FPX"; */
+"SeF-hR-FPX.segmentTitles[2]" = "H";
+
+/* Class = "UILabel"; text = "Description"; ObjectID = "XEm-no-TgJ"; */
+"XEm-no-TgJ.text" = "Description";
+
+/* Class = "UIButton"; normalTitle = "Edit"; ObjectID = "ZhU-0W-CRu"; */
+"ZhU-0W-CRu.normalTitle" = "Edit";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "cUI-Sq-B6Y"; */
+"cUI-Sq-B6Y.text" = "Name";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "dh9-E7-0f6"; */
+"dh9-E7-0f6.text" = "Name";
+
+/* Class = "UILabel"; text = "Description"; ObjectID = "g4U-Md-VfN"; */
+"g4U-Md-VfN.text" = "Description";
+
+/* Class = "UILabel"; text = "Priority"; ObjectID = "jWb-Ar-ow7"; */
+"jWb-Ar-ow7.text" = "Priority";
+
+/* Class = "UITabBarItem"; title = "Done"; ObjectID = "mZC-L6-nJX"; */
+"mZC-L6-nJX.title" = "Done";
+
+/* Class = "UILabel"; text = "Priority"; ObjectID = "ntP-6I-rsC"; */
+"ntP-6I-rsC.text" = "Priority";
+
+/* Class = "UIButton"; normalTitle = "Done"; ObjectID = "xwz-Rg-sZT"; */
+"xwz-Rg-sZT.normalTitle" = "Done";
