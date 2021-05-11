@@ -7,13 +7,16 @@
 
 #import "InProgressTableViewController.h"
 #import "EditViewController.h"
+#import "UserDefaults.h"
+
 @interface InProgressTableViewController (){
     NSMutableArray<Task*> *tasksArray;
     NSMutableArray<Task*> *tasksInProgressArray;
     NSMutableArray<Task*> *tasksHighArray;
     NSMutableArray<Task*> *tasksMediumArray;
     NSMutableArray<Task*> *tasksLowArray;
-    NSUserDefaults *defaults;
+//    NSUserDefaults *defaults;
+    UserDefaults* userDef;
     BOOL isFiltered;
     BOOL isSorted;
 }
@@ -25,13 +28,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    userDef = [UserDefaults new];
     isFiltered = false;
     isSorted = false;
     _searchBar.delegate = self;
-    defaults = [NSUserDefaults standardUserDefaults];
+//    defaults = [NSUserDefaults standardUserDefaults];
+}
+
+- (void)viewDidAppear:(BOOL)animated{
     [self loadArrays];
     [self updateArray];
-    
 }
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
@@ -54,8 +60,7 @@
 }
 
 -(void)loadArrays{
-    NSData *readData = [defaults objectForKey:@"tasksArray"];
-    tasksArray = [NSKeyedUnarchiver unarchiveObjectWithData:readData];
+    tasksArray = [userDef loadArrays];
     tasksInProgressArray = [NSMutableArray new];
    if ([tasksArray count]==0) {
         tasksArray = [NSMutableArray new];
@@ -63,9 +68,7 @@
 }
 
 -(void)saveData{
-    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:tasksArray];
-    [defaults setObject:data forKey:@"tasksArray"];
-    [defaults synchronize];
+    [userDef saveArray:tasksArray];
 }
 
 -(void)updateArray{

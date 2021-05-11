@@ -9,18 +9,6 @@
 
 @implementation UserDefaults
 
-
-- (NSMutableArray *)loadArrays{
-    return tasksArray;
-}
-
-- (void)updateArray:(NSMutableArray *)tasks{
-    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:tasksArray];
-    [defaults setObject:data forKey:@"tasksArray"];
-    [defaults synchronize];
-}
-
-
 - (instancetype)init
 {
     self = [super init];
@@ -36,4 +24,14 @@
     return self;
 }
 
+- (NSMutableArray *)loadArrays{
+    return tasksArray;
+}
+
+- (void)saveArray:(NSMutableArray *)tasks{
+    tasksArray = tasks;
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:tasksArray];
+    [defaults setObject:data forKey:@"tasksArray"];
+    [defaults synchronize];
+}
 @end

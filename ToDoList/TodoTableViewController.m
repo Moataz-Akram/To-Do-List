@@ -9,14 +9,16 @@
 #import "ViewController.h"
 #import "EditViewController.h"
 #import "Task.h"
-#import "EditViewController.h"
+#import "UserDefaults.h"
 
 @interface TodoTableViewController (){
     NSMutableArray<Task*> *tasksArray;
     NSMutableArray<Task*> *tasksToDoArray;
-    NSUserDefaults *defaults;
+//    NSUserDefaults *defaults;
+    UserDefaults* userDef;
     BOOL isFiltered;
 }
+
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @end
@@ -25,10 +27,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    userDef = [UserDefaults new];
     isFiltered = false;
     _searchBar.delegate = self;
-    defaults = [NSUserDefaults standardUserDefaults];
-    [self loadArrays];
+//    defaults = [NSUserDefaults standardUserDefaults];
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    tasksArray = [userDef loadArrays];
     [self updateArray];
 }
 
@@ -53,11 +59,7 @@
 }
 
 -(void)loadArrays{
-    NSData *readData = [defaults objectForKey:@"tasksArray"];
-    tasksArray = [NSKeyedUnarchiver unarchiveObjectWithData:readData];
-   if ([tasksArray count]==0) {
-        tasksArray = [NSMutableArray new];
-    }
+    tasksArray = [userDef loadArrays];
 }
 
 -(void)updateArray{
@@ -72,16 +74,15 @@
 }
 
 -(void)saveData{
-    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:tasksArray];
-    [defaults setObject:data forKey:@"tasksArray"];
-    [defaults synchronize];
+    [userDef saveArray:tasksArray];
+//    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:tasksArray];
+//    [defaults setObject:data forKey:@"tasksArray"];
+//    [defaults synchronize];
 }
 
 - (void)addTask:(Task*)task{
-//    printf("hello %s %s %d %s  \n",[task.title UTF8String],[task.tDescription UTF8String],task.priority ,[task.date.description UTF8String]);
     [self startLocalNotification:task.date :task.title];
     [tasksArray addObject:task];
-//    [tasksToDoArray addObject:task];
     [self updateArray];
     printf("all array count %d\n",[tasksArray count]);
     [self saveData];
@@ -90,19 +91,16 @@
 
 - (void)editTask:(Task *)task :(int)position{
     [self loadArrays];
-//    [tasksArray removeObjectAtIndex:position];
     for (int i = 0; i<[tasksArray count]; i++) {
         if (position == [tasksArray objectAtIndex:i].tid){
             [tasksArray replaceObjectAtIndex:i withObject:task];
         }
     }
-//    [tasksArray addObject:task];
     [self updateArray];
     [self saveData];
 }
 
 - (IBAction)addItem:(id)sender {
-    printf("task count = %d\n",[tasksArray count]);
     ViewController *addTaskScreen = [self.storyboard instantiateViewControllerWithIdentifier:@"ViewController"];
     addTaskScreen.tid = [tasksArray lastObject].tid +1;
     addTaskScreen.addTaskProtocol = self;

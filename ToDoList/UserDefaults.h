@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
     NSUserDefaults *defaults;
 }
 -(NSMutableArray*)loadArrays;
--(void)updateArray:(NSMutableArray*) tasks;
+-(void)saveArray:(NSMutableArray*) tasks;
 @end
 
 NS_ASSUME_NONNULL_END
